@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace Lab1
 {
     public class White
@@ -59,11 +61,8 @@ namespace Lab1
             bool answer = false;
 
             // code here
-            double qwe = x * x + y * y;
-            double xer = r * r;
-            double cc=(qwe-xer);
-            cc = Math.Abs(cc);
-            if (cc <= Math.Pow(10,-6)) answer = true;
+            double qwe = Math.Abs(x * x + y * y - r * r);
+            if (qwe <= 1e-3) answer = true;
             // end
 
             return answer;
@@ -74,7 +73,9 @@ namespace Lab1
             bool answer = false;
 
             // code here
-
+            int s = n*n;
+            if (s-n > 2*n) 
+                if (n%2 == 0) answer = true;
             // end
 
             return answer;
@@ -84,7 +85,8 @@ namespace Lab1
             bool answer = false;
 
             // code here
-
+            L /= 10.0;
+            if (T + M >= 5 && L <= 3.0 && M % 2 == 0) answer = true;
             // end
 
             return answer;
